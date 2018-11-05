@@ -8,6 +8,8 @@ public class Calculator {
 		int first = scanner.nextInt();
 		
 		System.out.println("첫 번째 값 : " + first);
+		
+		int result = first;
 	
 		while(true) {
 		
@@ -27,14 +29,18 @@ public class Calculator {
 		
 		
 		
-		if("+".equals(symbol))
-			System.out.println("덧셈 결과 : "+ (first+second));
-		else if("-".equals(symbol))	
-			System.out.println("뺄셈 결과 : "+ (first-second));
-		else if("*".equals(symbol))	
-			System.out.println("곱셈 결과 : "+ (first*second));
-		else if("/".equals(symbol))
-			System.out.println("나누기 결과 : "+ (first/second));
+		if("+".equals(symbol)) {
+			System.out.println("덧셈 결과 : "+ (result+second));
+			result = result+second; }
+		else if("-".equals(symbol))	{
+			System.out.println("뺄셈 결과 : "+ (result-second));
+			result = result-second; }
+		else if("*".equals(symbol))	{
+			System.out.println("곱셈 결과 : "+ (result*second));
+			result = result*second;}
+		else if("/".equals(symbol)) {
+			System.out.println("나누기 결과 : "+ (result/second));
+			result = result/second;}
 		else
 			System.out.println("사용할 수 없는 연산기호입니다.");
 			
