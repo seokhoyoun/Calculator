@@ -9,14 +9,23 @@ public class Calculator {
 		
 		System.out.println("첫 번째 값 : " + first);
 	
-		System.out.print("두 번째 값을 입력하세요 : ");
-		int second = scanner.nextInt();
+		while(true) {
 		
-		System.out.println("두 번째 값 : "+ second);
-		
-		System.out.print(" +, -, *, / 중 하나를 선택하세요 : ");
+		System.out.print("[ +, -, *, / , quit] 중 하나를 선택하세요 : ");
 		
 		String symbol = scanner.next();
+		
+		if("quit".equals(symbol)) {
+			System.out.println("종료 되었습니다.");
+			break;
+		}
+		System.out.print("다음 값을 입력하세요 : ");
+		
+		int second = scanner.nextInt();
+		
+		System.out.println("다음 값 : "+ second);
+		
+		
 		
 		if("+".equals(symbol))
 			System.out.println("덧셈 결과 : "+ (first+second));
@@ -29,6 +38,6 @@ public class Calculator {
 		else
 			System.out.println("사용할 수 없는 연산기호입니다.");
 			
-		
+		}
 	}
 }
