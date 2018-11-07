@@ -1,74 +1,69 @@
 import java.util.Scanner;
 
-public class Calculator {
+public class Calculator{
 	
-	static int getFirstValue() {
-		
-		Scanner scanner = new Scanner(System.in);
+	static int getFirst(Scanner scanner) {
+		System.out.print("1) ");
 		int first = scanner.nextInt();
 		return first;
-		
 	}
 	
-	static int getSecondValue() {
-		Scanner scanner = new Scanner(System.in);
+	static int getSecond(Scanner scanner) {
+		System.out.print("2) ");
 		int second = scanner.nextInt();
 		return second;
-		
 	}
 	
-	static String getSymbol() {
-		
-		Scanner scanner = new Scanner(System.in);
+	static String getSymbol(Scanner scanner) {
+		System.out.print("연산기호) ");
 		String symbol = scanner.next();
 		
-
+			return symbol;
 		
-				return symbol;
+	}
+	
+	static int calculate(int first, int second, String symbol) {
+		int result = 0;
+		
+			if(symbol.equals("+"))
+				result = first + second;
+			else if(symbol.equals("-"))
+				result = first - second;
+			else if(symbol.equals("*"))
+				result = first * second;
+			else if(symbol.equals("/"))
+				result = first / second;
+			else {
+				System.out.println("사용할 수 없는 기호입니다.");
+			}
+				return result;
 			
+			
+		
+		
+		
 	}
 	
-	static int calculate(String symbol, int result, int second) {
+	static void print(int result) {
+		System.out.println("결과 : " + result);
 		
-		if("+".equals(symbol)) {
-			System.out.println("덧셈 결과 : "+ (result+second));
-			return result = result+second; }
-		else if("-".equals(symbol))	{
-			System.out.println("뺄셈 결과 : "+ (result-second));
-			return result = result-second; }
-		else if("*".equals(symbol))	{
-			System.out.println("곱셈 결과 : "+ (result*second));
-			return result = result*second;}
-		else if("/".equals(symbol)) {
-			System.out.println("나누기 결과 : "+ (result/second));
-			return result = result/second;}
-		else
-			System.out.println("사용할 수 없는 연산기호입니다.");
-			return 0;
+		
 	}
-	
-	
-	public static void main(String [] args) {
-		
-			System.out.print("첫 번째값을 입력하세요 : ");
-		int first = getFirstValue();	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int first = getFirst(scanner);
 		int result = first;
-		while(true) {
-			System.out.print("[ +, -, *, / , quit] 중 하나를 선택하세요 : ");
-		String symbol = getSymbol();
-				if("quit".equals(symbol)) {
-						System.out.println("종료 되었습니다.");
-							break;}
+			while(true) {
+				String symbol = getSymbol(scanner);
+					if(symbol.equals("quit")) {
+							System.out.println("종료");
+								break;	
+										}
+						int second = getSecond(scanner);
 		
-		 System.out.print("다음 값을 입력하세요 : ");
-		 int second = getSecondValue();
-				result = calculate(symbol,result,second);}
-	
-		
-		
-		
-		
+			result = calculate(result,second,symbol);
 			
+		print(result);
 		}
 	}
-
+}
