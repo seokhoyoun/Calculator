@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Input {
+
 	static int getFirst(Scanner scanner) {
 		System.out.print("1) ");
 		int first = scanner.nextInt();

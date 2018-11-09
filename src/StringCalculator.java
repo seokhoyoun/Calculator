@@ -1,25 +1,48 @@
-import java.util.Scanner; 
+import java.util.Scanner;
 
-public class StringCalculator {
+class StringCalculator{
 	public static void main(String[] args) {
+		System.out.println("값을 입력 하세요.");
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("값을 입력하세요 : " );
 		String value = scanner.nextLine();
-		String[] values = value.split(" "); 
-		
 		System.out.println("입력 값 : " + value);
-		int first = Integer.parseInt(values[0]);
-		int result = first;
-		int i = 1;
 		
-				while(i<values.length) {
-					String symbol = values[i];
-					int second = Integer.parseInt(values[i+1]);
-				result = Calculator.calculate(result, second, symbol);
-				i = i + 2;
-				}
-				Output.print(result);
+		String[] values = value.split(" ");
+		int first = Integer.parseInt(values[0]);
+		
+		int result = first;
+		for(int i = 1; i < values.length; i = i + 2) {
+			String symbol = values[i];
+			System.out.println("연산 기호 : " + symbol);
 			
-	}
+			int second = Integer.parseInt(values[i+1]);
+			System.out.println("입력 값 : " + second);
+			
+		
+			if(symbol.equals("+")) {
+				result +=  second;
+				System.out.println("결과 : "+ result);
+			}
+			else if(symbol.equals("-")) {
+				result -= second;
+				System.out.println("결과 : "+ result);
 				
-} 
+			}
+			else if(symbol.equals("*")) {
+				result *= second;
+				System.out.println("결과 : "+ result);
+				
+			}
+			else if(symbol.equals("/")) {
+				result /= second;
+				System.out.println("결과 : "+ result);
+				
+			}
+			else
+				System.out.println("사용할 수 없는 기호입니다.");
+				
+		}
+		
+		
+	}
+}

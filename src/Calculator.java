@@ -22,6 +22,7 @@ public class Calculator{
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+	
 		int first = Input.getFirst(scanner);
 		int result = first;
 			while(true) {
